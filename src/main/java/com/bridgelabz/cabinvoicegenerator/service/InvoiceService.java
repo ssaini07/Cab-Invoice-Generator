@@ -23,4 +23,5 @@ public class InvoiceService {
         System.out.println("length " + rides.length + " fare" + totalFare);
         return new InvoiceSummary(rides.length, totalFare);
     }
+
 }
