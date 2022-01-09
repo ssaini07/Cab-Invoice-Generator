@@ -6,13 +6,13 @@ public class InvoiceSummary {
     private int numOfRides;
     private double totalFare;
     private double avgFare;
-    private String id;
+    //private String id;
 
-    public InvoiceSummary(String id, double totalFare) {
-        this.numOfRides = 0;
+    public InvoiceSummary(int numOfRides, double totalFare) {
+        this.numOfRides = numOfRides;
         this.totalFare = totalFare;
-        this.avgFare = 0;
-        this.id = id;
+        this.avgFare = this.totalFare / this.numOfRides;
+        //this.id = id;
     }
 
     @Override
@@ -21,7 +21,12 @@ public class InvoiceSummary {
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceSummary that = (InvoiceSummary) o;
         return numOfRides == that.numOfRides && Double.compare(that.totalFare, totalFare) == 0
-                && Objects.equals(avgFare, that.avgFare);
+                && Double.compare(that.avgFare, avgFare) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numOfRides, totalFare, avgFare);
     }
 
 }

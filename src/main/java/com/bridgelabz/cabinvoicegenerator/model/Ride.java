@@ -1,14 +1,21 @@
 package com.bridgelabz.cabinvoicegenerator.model;
 
+import com.bridgelabz.cabinvoicegenerator.service.InvoiceService;
+
 public class Ride {
     private double distance;
     private int time;
-    private String id;
+    private String rideType;
 
-    public Ride(double distance, int time, String id) {
+    public Ride(double distance, int time) {
         this.distance = distance;
         this.time = time;
-        this.id = id;
+    }
+
+    public Ride(double distance, int time, String rideType) {
+        this.distance = distance;
+        this.time = time;
+        this.rideType = rideType;
     }
 
     public double getDistance() {
@@ -27,11 +34,4 @@ public class Ride {
         this.time = time;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }
